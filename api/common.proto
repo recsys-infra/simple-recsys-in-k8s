@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package recsys;
+option go_package = "github.com/recsys-infra/simple-recsys-in-k8s/api;api";
+
+message Request {
+  string request_id = 1 [
+    json_name = "RequestId"
+  ];
+  string user_id = 2 [
+    json_name = "UserId"
+  ];
+}
+
+message Response {
+  string request_id = 1 [
+    json_name = "RequestId"
+  ];
+  string user_id = 2 [
+    json_name = "UserId"
+  ];
+  repeated FeedInfo feed_infos = 3 [
+    json_name = "FeedInfos"
+  ];
+}
+
+message FeedInfo {
+  int64 feed_id = 1 [
+    json_name = "FeedId"
+  ];
+  string feed_name = 2 [
+    json_name = "FeedName"
+  ];
+  string summary = 3 [
+    json_name = "Summary"
+  ];
+}
+
+message UserPrefRequest {
+  string request_id = 1 [
+    json_name = "RequestId"
+  ];
+  string user_id = 2 [
+    json_name = "UserId"
+  ];
+}
+
+message UserPrefResponse {
+  string request_id = 1 [
+    json_name = "RequestId"
+  ];
+  string user_id = 2 [
+    json_name = "UserId"
+  ];
+  repeated string user_pref = 3 [
+    json_name = "UserPref"
+  ];
+}
