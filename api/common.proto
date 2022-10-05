@@ -1,6 +1,7 @@
 syntax = "proto3";
 
-option go_package="github.com/recsys-infra/simple-recsys-in-k8s/api.proto";
+package recsys;
+option go_package = "github.com/recsys-infra/simple-recsys-in-k8s/api;api";
 
 message Request {
   string request_id = 1 [

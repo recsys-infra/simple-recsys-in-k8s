@@ -12,12 +12,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package main
+package backend
 
 import (
-	"fmt"
+	"context"
+	"strconv"
+	"time"
+
+	"github.com/recsys-infra/simple-recsys-in-k8s/api"
+
+	"github.com/golang/glog"
 )
 
-func main() {
-	fmt.Println("hello world")
+// RecSys 推荐入口
+func (s *service) RecSys(parentCtx context.Context, req *api.Request) (rsp *api.Response, err error) {
+	glog.Infof("req: %s", req.String())
+
+	return &api.Response{
+		RequestId: req.GetRequestId(),
+		UserId:    strconv.Itoa(int(time.Now().Unix())),
+	}, nil
 }

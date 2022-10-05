@@ -9,11 +9,11 @@ generate:
 all:
 	@echo "  >  "$@"ing $(DESTDIR)"
 	@mkdir -p pack/bin
-	${MAKE} -C cmd/core
+	${MAKE} -C cmd/backend
 	${MAKE} -C cmd/recall
 	${MAKE} -C cmd/predict
 	${MAKE} -C cmd/userpref
-	@cp -Rv cmd/core/recsys-core pack/bin/
+	@cp -Rv cmd/backend/recsys-backend pack/bin/
 	@cp -Rv cmd/predict/recsys-predict pack/bin/
 	@cp -Rv cmd/recall/recsys-recall pack/bin/
 	@cp -Rv cmd/userpref/recsys-userpref pack/bin/

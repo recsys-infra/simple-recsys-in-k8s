@@ -1,4 +1,4 @@
-TARGET := recsys-core
+TARGET := recsys-backend
 MAKEFILE_PATH := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 git_tag=$(shell git describe --long --tags --dirty --tags --always)
 git_commit=$(shell git rev-parse HEAD)

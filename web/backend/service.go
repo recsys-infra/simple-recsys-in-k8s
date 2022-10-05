@@ -12,7 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package api
+package backend
 
-//go:generate protoc -I=. --go_out=. --go_opt paths=source_relative common.proto
-//go:generate protoc -I=. --go-grpc_out=. --go-grpc_opt paths=source_relative --grpc-gateway_out=. --grpc-gateway_opt logtostderr=true --grpc-gateway_opt paths=source_relative --grpc-gateway_opt grpc_api_configuration=backend.yaml backend.proto
+import "github.com/recsys-infra/simple-recsys-in-k8s/api"
+
+type service struct {
+	api.UnimplementedBackendServiceServer
+}
+
+func NewService() api.BackendServiceServer {
+	return new(service)
+}

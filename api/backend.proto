@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package recsys;
+option go_package = "github.com/recsys-infra/simple-recsys-in-k8s/api;api";
+
+service BackendService {
+  rpc RecSys(Request) returns (Response) {}
+}
